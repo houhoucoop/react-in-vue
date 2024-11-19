@@ -1,6 +1,7 @@
 import { importTypes } from '@rancher/auto-import';
 import { IPlugin } from '@shell/core/types';
 import extensionRouting from './routing/extension-routing';
+import './dva'
 
 // Init the package
 export default function (plugin: IPlugin) {

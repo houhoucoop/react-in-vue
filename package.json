@@ -7,9 +7,12 @@
   },
   "dependencies": {
     "@rancher/shell": "^3.0.0",
+    "ant-design-vue": "^3.2.20",
     "babel-preset-react-app": "^10.0.1",
     "cache-loader": "^4.1.0",
     "color": "4.2.3",
+    "dva": "^2.4.1",
+    "dva-loading": "^3.0.25",
     "ip": "2.0.1",
     "node-polyfill-webpack-plugin": "^3.0.0",
     "react": "16",
@@ -41,5 +44,11 @@
     "serve-pkgs": "./node_modules/@rancher/shell/scripts/serve-pkgs",
     "publish-pkgs": "./node_modules/@rancher/shell/scripts/extension/publish",
     "parse-tag-name": "./node_modules/@rancher/shell/scripts/extension/parse-tag-name"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.0",
+    "style-loader": "^3.3.1"
   }
 }

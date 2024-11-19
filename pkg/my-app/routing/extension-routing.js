@@ -1,5 +1,5 @@
 // Don't forget to create a VueJS page called index.vue in the /pages folder!!!
-import Dashboard from '../pages/index.vue';
+import Longhorn from '../pages/index.vue';
 
 const BLANK_CLUSTER = '_';
 const YOUR_PRODUCT_NAME = 'myProductName';
@@ -8,7 +8,7 @@ const routes = [
   {
     name: `${YOUR_PRODUCT_NAME}-c-cluster`,
     path: `/${YOUR_PRODUCT_NAME}/c/:cluster`,
-    component: Dashboard,
+    component: Longhorn,
     meta: {
       product: YOUR_PRODUCT_NAME,
       cluster: BLANK_CLUSTER,

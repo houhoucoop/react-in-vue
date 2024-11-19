@@ -1,29 +1,31 @@
 <script>
-import {applyReactInVue, applyPureReactInVue} from 'veaury'
-import BasicReactComponent from './react_app/Basic.jsx'
-import {ref} from 'vue'
+import '../react_app/longhorn-ui/src/publicPath'
+
+// import assets
+import '../react_app/longhorn-ui/src/assets/iconfont/iconfont.eot'
+import '../react_app/longhorn-ui/src/assets/iconfont/iconfont.svg'
+import '../react_app/longhorn-ui/src/assets/iconfont/iconfont.ttf'
+import '../react_app/longhorn-ui/src/assets/iconfont/iconfont.woff'
+
+import {startApp, store} from '../dva'
+import Main from './Main.vue'
+import 'ant-design-vue/dist/antd.css'
 
 export default {
-  components: {
-    Basic: applyReactInVue(BasicReactComponent),
-    BasicPure: applyPureReactInVue(BasicReactComponent)
-  },
-  setup() {
-    return {
-      foo: ref('Hello!')
+  components: { Main },
+  mounted() {
+    if (store) {
+      console.log('DVA store created successfully:', store);
+    } else {
+      console.error('DVA store creation failed');
     }
+    startApp('#longhorn-app');
   }
 }
 </script>
 
 <template>
-  <BasicPure :foo="foo">
-    <div>
-      the children
-    </div>
-  </BasicPure>
-  <div>
-    <h1>Top Level Product</h1>
-    <p>This is a custom VueJS page. You can render anything you want</p>
+  <div id="longhorn-app">
+    <Main />
   </div>
 </template>

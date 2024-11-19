@@ -8,7 +8,7 @@ if (typeof baseConfig.configureWebpack === 'function') {
     configureWebpack(config);
 
     config.module.rules.push({
-      test: /\.jsx$/i,
+      test: /\.js$/i,
       exclude: /node_modules/,
       loader: 'babel-loader',
       options: { presets: ['veaury/babel/ReactPreset'] }
