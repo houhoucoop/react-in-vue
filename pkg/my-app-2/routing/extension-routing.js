@@ -2,7 +2,7 @@
 import App from '../pages/App.vue';
 
 const BLANK_CLUSTER = '_';
-const YOUR_PRODUCT_NAME = 'longhorn';
+const YOUR_PRODUCT_NAME = 'longhorn-hack';
 
 const routes = [
   {

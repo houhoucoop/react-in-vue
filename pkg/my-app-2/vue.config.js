@@ -11,7 +11,7 @@ if (typeof baseConfig.configureWebpack === 'function') {
 
     webpackConfig.plugins.push(
       new webpack.container.ModuleFederationPlugin({
-        name: 'longhorn',
+        name: 'longhorn-hack',
         remotes: {
           longhornUI: `longhornUI@${remoteURL}/remoteEntry.js`
         }
@@ -23,11 +23,11 @@ if (typeof baseConfig.configureWebpack === 'function') {
 baseConfig.devServer = {
   ...baseConfig.devServer,
   proxy: {
-    '/longhorn/c/_/v1': {
+    '/longhorn-hack/c/_/v1': {
       target: remoteURL,
       changeOrigin: true,
       pathRewrite: {
-        '^/longhorn/c/_/v1': '/v1',
+        '^/longhorn-hack/c/_/v1': '/v1',
       },
     },
   },
