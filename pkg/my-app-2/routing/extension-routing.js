@@ -2,7 +2,7 @@
 import App from '../pages/App.vue';
 
 const BLANK_CLUSTER = '_';
-const YOUR_PRODUCT_NAME = 'myProductName';
+const YOUR_PRODUCT_NAME = 'longhorn';
 
 const routes = [
   {

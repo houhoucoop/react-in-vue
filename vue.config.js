@@ -5,7 +5,8 @@ const baseConfig = config(__dirname, {
   excludes: [],
   // excludes: ['fleet', 'example']
 });
-console.log("🚀🚀🚀 ~ baseConfig:", baseConfig)
+
+const remoteURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 if (typeof baseConfig.configureWebpack === 'function') {
   const configureWebpack = baseConfig.configureWebpack;
@@ -15,9 +16,9 @@ if (typeof baseConfig.configureWebpack === 'function') {
 
     webpackConfig.plugins.push(
       new webpack.container.ModuleFederationPlugin({
-        name: 'my-app-2',
+        name: 'longhorn',
         remotes: {
-          longhornUI: 'longhornUI@http://localhost:8080/remoteEntry.js'
+          longhornUI: `longhornUI@${remoteURL}/remoteEntry.js`
         }
       }),
     )
@@ -27,11 +28,11 @@ if (typeof baseConfig.configureWebpack === 'function') {
 baseConfig.devServer = {
   ...baseConfig.devServer,
   proxy: {
-    '/myProductName/c/_/v1': {
-      target: 'http://localhost:8080', // React API base URL
+    '/longhorn/c/_/v1': {
+      target: remoteURL,
       changeOrigin: true,
       pathRewrite: {
-        '^/myProductName/c/_/v1': '/v1', // Rewriting the path
+        '^/longhorn/c/_/v1': '/v1',
       },
     },
   },
